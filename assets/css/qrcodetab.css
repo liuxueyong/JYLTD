@@ -1,0 +1,27 @@
+.wxqrcode {
+    position: relative;
+}
+ 
+.wxqrcode img.qrcodeimg {
+  position: absolute;
+  z-index: 99;
+  top: 50px;
+  right: 7px;
+  width: 10rem;
+  max-width: none;
+  height: 10rem;
+  transform: scale(0);
+  transform-origin: top;
+  opacity: 0;
+  border: 1px solid #ffc107;
+  border-radius: .25rem;
+  -webkit-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+ 
+}
+ 
+.wxqrcode:hover img.qrcodeimg {
+    transform: scale(1);
+    opacity: 1;
+}
