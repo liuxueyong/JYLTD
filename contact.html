@@ -34,6 +34,10 @@
     <!-- Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
+	<!-- BaiduMap-->
+	<style type="text/css">
+         #allmap {width: 100%;height: 600px;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    </style>
   </head>
   <body class="sticky-enable pcontact">
     <div id="pagewrap" class="pagewrap">
@@ -89,12 +93,102 @@
               <div class="container">
                 <h2 class="builday-medium-heading-style2">GET IN TOUCH</h2>
                 <div class="mt-5"></div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8032682535454!2d144.95461377246602!3d-37.81807680191403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4dd1f29e0f%3A0x2474d2278edab785!2s100+King+St%2C+Melbourne+VIC+3000%2C+Australia!5e0!3m2!1sen!2s!4v1539879164891" width="800" height="600" allowfullscreen="" class="swin-sc-contact-map"></iframe>
+				  <!-- BaiDuMap-->
+                    <table style="width:100%">
+                     <tr>
+                      <td>
+                         <div id="allmap"></div>
+                      </td>
+                   </tr>
+                  </table>
+                  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qDn0QPD8AAKI4cIOlHWKqH7XIYvucB5n"></script>
+                  <script type="text/javascript">
+                   // 百度地图API功能
+                   var map = new BMap.Map("allmap");
+                   var point = new BMap.Point(113.27919,23.215528);
+                   map.centerAndZoom(point, 15);
+        
+                   var json_data = [[113.27919,23.215528,'家园青年社区<br />地址：元下底2号'],[113.288852,23.21713,'家园公寓(江夏)<br />地址：广东省广州市白云区江夏北一路东一巷'],[113.283358,23.22963,'家园公寓(黄边)<br />地址：黄边一横路']];
+                   var pointArray = new Array();
+					  
+				   var style_map=[  {
+      		       // 地图背景
+                    "featureType": "land",
+                    "elementType": "all",
+                    "stylers": {
+                              "color": "#93c47dff",
+                              "lightness": -1
+                     	    }
+           		    },  {
+           		    // 水路背景
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": {
+                              "color": "#a2c4c9ff",
+                              "lightness": -1
+                	        }
+         		    }, {
+           		    // 绿地背景
+                    "featureType": "green",
+                    "elementType": "all",
+                    "stylers": {
+                              "color": "#ffffccff",
+                              "lightness": -1
+               		        }
+          		    },{
+          		    // 教育地区
+                    "featureType": "education",
+                    "elementType": "all",
+                    "stylers": {
+                              "color": "#d5a6bdff",
+                              "lightness": -1
+           		            }
+         		    } ]
+         		    //将样式加载到地图中
+        		     map.setMapStyle({styleJson:eval("style_map")});
+ 
+                   var opts = {
+                           width : 250,     // 信息窗口宽度
+                           height: 80,     // 信息窗口高度
+                           title : "" , // 信息窗口标题
+                           enableMessage:true//设置允许信息窗发送短息
+                          };
+ 
+                   for(var i=0;i<json_data.length;i++){
+                       var marker = new BMap.Marker(new BMap.Point(json_data[i][0], json_data[i][1])); // 创建点
+                       map.addOverlay(marker);    //增加点
+                       pointArray[i] = new BMap.Point(json_data[i][0], json_data[i][1]);
+                       var content = json_data[i][2];
+                       addClickHandler(content,marker);
+           
+                   }
+                   //让所有点在视野范围内
+                   map.setViewport(pointArray);
+ 
+                       function addClickHandler(content,marker){
+                   marker.addEventListener("click",function(e){
+                       openInfo(content,e)}
+                    );
+                   }
+                   function openInfo(content,e){
+                   var p = e.target;
+                   var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+                   var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
+                   map.openInfoWindow(infoWindow,point); //开启信息窗口
+                   }
+           
+                   //移动到某一坐标点
+                      function to(x,y){
+                       map.panTo(new BMap.Point(x,y)); 
+ 
+                      }
+                  </script>
                 <div class="swin-sc swin-sc-contact">
                   <div class="item">
                     <div class="item-content">
+					  <a href="javascript:void(0)" οnclick="to(116.404,39.915)">
                       <h4 class="media-heading contact-title">Main Office</h4>
-                      <div class="description">121 King St, Melbourne VIC 3000, Australia<br>256-434-3320 / 423-152-7820</div>
+                      <div class="description">121 King St, Melbourne VIC 3000, Australia<br>256-434-3320 / 423-152-7820</div></a>
                     </div>
                   </div>
                   <div class="item">
