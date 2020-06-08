@@ -36,8 +36,12 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
 	<!-- BaiduMap-->
 	<style type="text/css">
-         #allmap {width: 100%;height: 600px;overflow: hidden;margin:0;font-family:"微软雅黑";}
-    </style>
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:500px;}
+		p{margin-left:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=qDn0QPD8AAKI4cIOlHWKqH7XIYvucB5n"></script>
+	<script src="//libs.baidu.com/jquery/1.9.0/jquery.js"></script>
   </head>
   <body class="sticky-enable pcontact">
     <div id="pagewrap" class="pagewrap">
@@ -94,113 +98,12 @@
                 <h2 class="builday-medium-heading-style2">查看您附近的家园印象</h2>
                 <div class="mt-5"></div>
 				  <!-- BaiDuMap-->
-                    <table style="width:100%">
-                     <tr>
-                      <td>
-                         <div id="allmap"></div>
-                      </td>
-                   </tr>
-                  </table>
-                  <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=qDn0QPD8AAKI4cIOlHWKqH7XIYvucB5n"></script>
-                  <script type="text/javascript">
-                   // 百度地图API功能
-                   var map = new BMap.Map("allmap");
-                   var point = new BMap.Point(113.27919,23.215528);
-                   map.centerAndZoom(point, 15);
-        
-                   var json_data = [
-					   [113.27919,23.215528,'家园青年社区<br />地址：元下底2号'],
-					   [113.288852,23.21713,'家园公寓(江夏)<br />地址：广东省广州市白云区江夏北一路东一巷'],
-					   [113.283358,23.22963,'家园公寓(黄边)<br />地址：黄边一横路']
-				          ];
-                   var pointArray = new Array();
-					  
-					  
-				   var style_map=[  {
-      		       // 地图背景
-                    "featureType": "land",
-                    "elementType": "all",
-                    "stylers": {
-                              "color": "#93c47dff",
-                              "lightness": -1
-                     	    }
-           		    },  {
-           		    // 水路背景
-                    "featureType": "water",
-                    "elementType": "all",
-                    "stylers": {
-                              "color": "#a2c4c9ff",
-                              "lightness": -1
-                	        }
-         		    }, {
-           		    // 绿地背景
-                    "featureType": "green",
-                    "elementType": "all",
-                    "stylers": {
-                              "color": "#ffffccff",
-                              "lightness": -1
-               		        }
-          		    },{
-          		    // 教育地区
-                    "featureType": "education",
-                    "elementType": "all",
-                    "stylers": {
-                              "color": "#d5a6bdff",
-                              "lightness": -1
-           		            }
-         		    } ]
-         		    //将样式加载到地图中
-        		     map.setMapStyle({styleJson:eval("style_map")});
- 
-                   var opts = {
-                           width : 250,     // 信息窗口宽度
-                           height: 80,     // 信息窗口高度
-                           title : "" , // 信息窗口标题
-                           enableMessage:true//设置允许信息窗发送短息
-                          };
- 
-                   for(var i=0;i<json_data.length;i++){
-                       var marker = new BMap.Marker(new BMap.Point(json_data[i][0], json_data[i][1])); // 创建点
-                       map.addOverlay(marker);    //增加点
-                       pointArray[i] = new BMap.Point(json_data[i][0], json_data[i][1]);
-                       var content = json_data[i][2];
-                       addClickHandler(content,marker);
-           
-                   }
-                   //让所有点在视野范围内
-                   map.setViewport(pointArray);
- 
-                       function addClickHandler(content,marker){
-                   marker.addEventListener("click",function(e){
-                       openInfo(content,e)}
-                    );
-                   }
-					  
-				   //创建小狐狸
-	               var pt = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
-	               var myIcon = new BMap.Icon("/assets/images/point.png", new BMap.Size(300,157));
-	               var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
-	               map.addOverlay(marker2);              // 将标注添加到地图中
-					  
-                   function openInfo(content,e){
-                   var p = e.target;
-                   var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat); 
-                   var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
-                   map.openInfoWindow(infoWindow,point); //开启信息窗口
-                   }
-           
-                   //移动到某一坐标点
-                      function to(x,y){
-                       map.panTo(new BMap.Point(x,y)); 
- 
-                      }
-                  </script>
+                    <div id="allmap"></div>
                 <div class="swin-sc swin-sc-contact">
                   <div class="item">
                     <div class="item-content">
-					  <a href="javascript:void(0)" οnclick="to(116.404,39.915)">
                       <h4 class="media-heading contact-title">Main Office</h4>
-                      <div class="description">121 King St, Melbourne VIC 3000, Australia<br>256-434-3320 / 423-152-7820</div></a>
+                      <div class="description">121 King St, Melbourne VIC 3000, Australia<br>256-434-3320 / 423-152-7820</div>
                     </div>
                   </div>
                   <div class="item">
@@ -393,4 +296,77 @@
     <script src="assets/js/shortcode.js"></script>
   </body>
 </html>
+  <script type="text/javascript">
+	// 百度地图API功能	
+	map = new BMap.Map("allmap");
+	map.centerAndZoom(new BMap.Point(116.417854,39.921988), 15);
+	map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+	var data_info = [
+		[116.417854,39.921988,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
+		[116.406605,39.921585,"地址：北京市东城区东华门大街"],
+		[116.412222,39.912345,"地址：北京市东城区正义路甲5号"]
+					];
+	
+		var style_map=[  {
+      		       // 地图背景
+                    "featureType": "land",
+                    "elementType": "all",
+                    "stylers": {
+                              "color": "#93c47dff",
+                              "lightness": -1
+                     	    }
+           		    },  {
+           		    // 水路背景
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": {
+                              "color": "#a2c4c9ff",
+                              "lightness": -1
+                	        }
+         		    }, {
+           		    // 绿地背景
+                    "featureType": "green",
+                    "elementType": "all",
+                    "stylers": {
+                              "color": "#ffffccff",
+                              "lightness": -1
+               		        }
+          		    },{
+          		    // 教育地区
+                    "featureType": "education",
+                    "elementType": "all",
+                    "stylers": {
+                              "color": "#d5a6bdff",
+                              "lightness": -1
+           		            }
+         		    } ]
+         		    //将样式加载到地图中
+        		     map.setMapStyle({styleJson:eval("style_map")});	  
+	  
+	var opts = {
+				width : 250,     // 信息窗口宽度
+				height: 80,     // 信息窗口高度
+				title : "信息窗口" , // 信息窗口标题
+				enableMessage:true//设置允许信息窗发送短息
+			   };
+	for(var i=0;i<data_info.length;i++){
+		var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));  // 创建标注
+		var content = data_info[i][2];
+		map.addOverlay(marker);               // 将标注添加到地图中
+		addClickHandler(content,marker);
+	}
+	function addClickHandler(content,marker){
+		marker.addEventListener("click",function(e){
+			openInfo(content,e)}
+		);
+	}
+	function openInfo(content,e){
+		var p = e.target;
+		var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+		var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
+		map.openInfoWindow(infoWindow,point); //开启信息窗口
+	}
+</script>
+
 
