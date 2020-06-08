@@ -301,9 +301,7 @@
 	map = new BMap.Map("allmap");
 	map.centerAndZoom(new BMap.Point(116.417854,39.921988), 15);
 	map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
-	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
-	  
-	var myIcon = new BMap.Icon("/assets/images/point.png", new BMap.Size(200,110));//自定义图标  
+	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用 
 	  
 	var data_info = [
 		[116.417854,39.921988,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
