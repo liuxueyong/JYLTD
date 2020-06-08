@@ -115,6 +115,7 @@
 				          ];
                    var pointArray = new Array();
 					  
+					  
 				   var style_map=[  {
       		       // 地图背景
                     "featureType": "land",
@@ -177,6 +178,9 @@
                    function openInfo(content,e){
                    var p = e.target;
                    var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+				   var myIcon = new BMap.Icon("/assets/images/point.png", new BMap.Size(67,75));
+	               var marker2 = new BMap.Marker(point,{icon:myIcon});  // 创建标注
+	               map.addOverlay(marker2);              // 将标注添加到地图中
                    var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
                    map.openInfoWindow(infoWindow,point); //开启信息窗口
                    }
