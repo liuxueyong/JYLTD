@@ -65,9 +65,9 @@
                 <div class="close-offcanvas-wrapper"><span class="close-offcanvas">x</span></div>
                 <div class="main-nav">
                   <ul id="main-nav" class="nav nav-pills">
-                    <li class="menu-item nav-item"><a href="index.html" class="main-text nav-link">Home</a></li>
+                    <li class="menu-item nav-item"><a href="index.html" class="main-text nav-link">家园印象</a></li>
                     <li class="menu-item nav-item"><a href="about.html" class="main-text nav-link">About</a></li>
-                    <li class="menu-item nav-item"><a href="contact.html" class="main-text nav-link">Contact</a></li>
+                    <li class="menu-item nav-item"><a href="contact.html" class="main-text nav-link">附近的家</a></li>
                   </ul>
                 </div>
               </nav>
@@ -79,11 +79,11 @@
           <div class="page-heading page-about large light">
             <div class="container">
               <div class="title-wrapper">
-                <div data-top="transform: translateY(0px);opacity:1;" data--120-top="transform: translateY(-30px);opacity:0;" data-anchor-target=".page-heading" class="title">Contact
+                <div data-top="transform: translateY(0px);opacity:1;" data--120-top="transform: translateY(-30px);opacity:0;" data-anchor-target=".page-heading" class="title">找到属于你的家
                   <div class="title-shape"><span class="shape"></span></div>
                 </div>
                 <div data-top="transform: translateY(0px);opacity:1;" data--20-top="transform: translateY(5px);" data--50-top="transform: translateY(15px);opacity:0.8;" data--120-top="transform: translateY(30px);opacity:0;" data-anchor-target=".page-heading" class="subtitle">
-                  <div class="breadcrumb-wrapper"><a href="http://sun-themes.com/html/builday/serives.html" class="link-home">Home</a><i class="fa fa-angle-right"></i><span class="current">contact</span></div>
+                  <div class="breadcrumb-wrapper"><a href="http://sun-themes.com/html/builday/serives.html" class="link-home">家园印象</a><i class="fa fa-angle-right"></i><span class="current">附近的家</span></div>
                 </div>
               </div>
             </div>
@@ -91,7 +91,7 @@
           <div class="page-content">
             <section>
               <div class="container">
-                <h2 class="builday-medium-heading-style2">GET IN TOUCH</h2>
+                <h2 class="builday-medium-heading-style2">查看您附近的家园印象</h2>
                 <div class="mt-5"></div>
 				  <!-- BaiDuMap-->
                     <table style="width:100%">
@@ -101,14 +101,18 @@
                       </td>
                    </tr>
                   </table>
-                  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qDn0QPD8AAKI4cIOlHWKqH7XIYvucB5n"></script>
+                  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=SyRux96r0i0Xue1Qqp0ZPb4uCc8BC6Aw"></script>
                   <script type="text/javascript">
                    // 百度地图API功能
                    var map = new BMap.Map("allmap");
                    var point = new BMap.Point(113.27919,23.215528);
                    map.centerAndZoom(point, 15);
         
-                   var json_data = [[113.27919,23.215528,'家园青年社区<br />地址：元下底2号'],[113.288852,23.21713,'家园公寓(江夏)<br />地址：广东省广州市白云区江夏北一路东一巷'],[113.283358,23.22963,'家园公寓(黄边)<br />地址：黄边一横路']];
+                   var json_data = [
+					   [113.27919,23.215528,'家园青年社区<br />地址：元下底2号'],
+					   [113.288852,23.21713,'家园公寓(江夏)<br />地址：广东省广州市白云区江夏北一路东一巷'],
+					   [113.283358,23.22963,'家园公寓(黄边)<br />地址：黄边一横路']
+				          ];
                    var pointArray = new Array();
 					  
 				   var style_map=[  {
