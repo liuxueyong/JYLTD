@@ -299,14 +299,14 @@
   <script type="text/javascript">
 	// 百度地图API功能	
 	map = new BMap.Map("allmap");
-	map.centerAndZoom(new BMap.Point(116.417854,39.921988), 15);
+	map.centerAndZoom(new BMap.Point(113.27919,23.215528), 15);
 	map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
 	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用 
 	  
 	var data_info = [
-		[116.417854,39.921988,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
-		[116.406605,39.921585,"地址：北京市东城区东华门大街"],
-		[116.412222,39.912345,"地址：北京市东城区正义路甲5号"]
+		[113.27919,23.215528,"家园青年社区<br>地址：广东省广州市白云区江夏元下底路<br>电话：123456789"],
+		[113.288852,23.21713,"家园公寓（江夏）<br>地址：广东省广州市白云区江夏北一路东一巷<br>电话：123456789"],
+		[113.283331,23.229618,"家园公寓（黄边）<br>地址：广东省广州市白云区黄边一横路<br>电话123456789"]
 					];
 	
 	var style_map=[{
@@ -1331,9 +1331,9 @@
     map.setMapStyle({styleJson:eval("style_map")});	  
 	   
 	var opts = {
-				width : 250,     // 信息窗口宽度
-				height: 80,     // 信息窗口高度
-				title : "信息窗口" , // 信息窗口标题
+				width : 300,     // 信息窗口宽度
+				height: 100,     // 信息窗口高度
+				title : "" , // 信息窗口标题
 				enableMessage:true//设置允许信息窗发送短息
 			   };
 	for(var i=0;i<data_info.length;i++){
