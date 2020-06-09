@@ -239,7 +239,7 @@
 </html>
   <script type="text/javascript">
 	// 百度地图API功能	
-	map = new BMap.Map("allmap");
+	map = new BMap.Map("allmap", {enableMapClick:false});
 	map.centerAndZoom(new BMap.Point(113.27919,23.215528), 15);
 	map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
 	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用 
