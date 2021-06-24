@@ -117,9 +117,10 @@
 }
 
 /*消除百度地图API左下logo*/
+@media (min-width: 576px) {
 .BMap_cpyCtrl {
     display:none;
 }
 .anchorBL{
     display:none;
-}
+}}
