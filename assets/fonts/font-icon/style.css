@@ -115,3 +115,11 @@
 .main-text {
   margin-left: 5px;
 }
+
+/*消除百度地图API左下logo*/
+.BMap_cpyCtrl {
+    display:none;
+}
+.anchorBL{
+    display:none;
+}
